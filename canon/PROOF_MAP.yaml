@@ -1,0 +1,23 @@
+proofs:
+  KS-DECIDE-001:
+    type: runtime-receipt
+    verification:
+      cli_command: >
+        keon verify-pack ./samples/decision-pack.json
+      expected_outputs:
+        - receipt.003.decision.v1.json
+        - packetHashSha256
+    artifacts:
+      - path: samples/decision-pack.json
+      - path: receipts/receipt.003.decision.v1.json
+    repos:
+      - keon-runtime
+      - keon-verify
+
+  KS-EVIDENCE-004:
+    type: cli-verification
+    verification:
+      cli_command: >
+        keon verify-pack ./samples/evidence-pack.json
+    artifacts:
+      - path: samples/evidence-pack.json

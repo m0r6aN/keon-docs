@@ -1,0 +1,29 @@
+version: 1
+last_updated: 2026-02-01
+
+claims:
+  - id: KS-DECIDE-001
+    title: Deterministic Decision Gateway
+    description: >
+      Keon provides a deterministic runtime decision gateway that emits
+      cryptographically verifiable receipts for every decision.
+    status: active
+    introduced_in:
+      phase: 5
+      version: keon-runtime-v1
+    public_surfaces:
+      - website/runtime
+      - whitepaper-v1.0
+    proof_required: true
+
+  - id: KS-EVIDENCE-004
+    title: Evidence Pack Verification CLI
+    description: >
+      Users can independently verify Evidence Packs using the Keon CLI.
+    status: active
+    introduced_in:
+      phase: 4
+      version: keon-cli-v1
+    public_surfaces:
+      - website/prove-it
+    proof_required: true

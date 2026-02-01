@@ -1,0 +1,41 @@
+name: Claims Governance
+
+on:
+  pull_request:
+    paths:
+      - "docs/**"
+      - "src/**"
+      - ".github/**"
+      - "scripts/claims/**"
+
+jobs:
+  claims-global-and-scoped:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Claim checks (global)
+        run: npm run claims:check
+
+  claims-scoped:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Claim checks (scoped)
+        run: |
+          MD_GLOBS="docs/**/*.md,src/**/*.mdx,src/**/*.md" npm run claims:check
