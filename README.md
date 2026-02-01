@@ -29,6 +29,14 @@ public-facing documentation and claims.
 - History is never rewritten; changes are appended
 - Drift is recorded explicitly, not silently corrected
 
+## Whitepaper
+
+The canonical Keon Systems Whitepaper is published and versioned in the `whitepaper/` directory.
+
+**Current Version**: v1.0 — Governed Execution for Operational AI (January 2026)
+
+[See Whitepaper Index →](./whitepaper/INDEX.md)
+
 ## Verification
 Claims and documentation in this repository are governed by
 automated checks that fail if:
@@ -36,8 +44,8 @@ automated checks that fail if:
 - A verifiable claim lacks proof
 - Claim IDs are malformed or inconsistent
 
-If it’s stated here, it can be proven.
-If it’s not here, it is not claimed.
+If it's stated here, it can be proven.
+If it's not here, it is not claimed.
 
 ## Repository layout
 - `canon/` — claims registry, proof map, phase inventory (source of truth)
