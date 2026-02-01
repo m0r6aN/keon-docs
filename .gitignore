@@ -1,0 +1,12 @@
+# node_modules
+node_modules
+
+# temp files
+*.tmp
+*.temp
+*.log
+*.swp
+*.swo
+*.DS_Store
+*.git
+*.env
