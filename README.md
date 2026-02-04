@@ -7,6 +7,9 @@ Keon is a governance substrate for AI and automated systems that enforces policy
 If you are new here, start with:
 → [START_HERE.md](./START_HERE.md)
 
+For a high-level overview of Keon Systems, visual explanations, and interactive proof tours, see:
+→ https://keon.systems
+
 ---
 
 ## Purpose of This Repository
@@ -149,4 +152,5 @@ This repository is licensed under the terms in [LICENSE.md](./LICENSE.md).
 ---
 
 **Law before power. Proof before trust.**
+
 
