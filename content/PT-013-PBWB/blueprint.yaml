@@ -1,0 +1,92 @@
+# PT-013 Proof-Backed Workflow Policy Pack — Blueprint
+# This defines the workflow steps, their ordering, and governance requirements.
+#
+# Every step routes through Federation Core. No step executes without policy evaluation.
+# Gates are explicit pause points requiring human approval before continuation.
+
+version: "1.0"
+campaign: PT-013
+title: Multi-Titan Collaboration under FC Governance
+generated: 2026-02-08
+
+workflow:
+  id: pbwb_multi_titan_collab
+  description: >
+    Multi-Titan collaboration workflow with action-level attribution,
+    thin receipts, RHID pointers, and sealed evidence bundle output.
+
+  steps:
+    - id: step_1
+      name: Normalize & Extract
+      actor_type: titan
+      required_capabilities: [normalize, extract]
+      inputs: [work_order]
+      outputs: [normalized_artifact]
+      policy_tier: automated
+      description: >
+        First Titan normalizes the incoming work order into a structured artifact.
+
+    - id: step_2
+      name: Plan & Structure
+      actor_type: titan
+      required_capabilities: [plan, structure]
+      inputs: [normalized_artifact]
+      outputs: [plan_artifact]
+      policy_tier: automated
+      description: >
+        Second Titan creates an execution plan from the normalized input.
+
+    - id: step_3
+      name: Build & Compose
+      actor_type: titan
+      required_capabilities: [build, compose]
+      inputs: [plan_artifact]
+      outputs: [composed_artifact]
+      policy_tier: automated
+      description: >
+        Third Titan builds the primary deliverable from the plan.
+
+    - id: step_4
+      name: Audit & Validate
+      actor_type: titan
+      required_capabilities: [audit, validate]
+      inputs: [composed_artifact]
+      outputs: [validated_artifact]
+      policy_tier: automated
+      description: >
+        Fourth Titan audits and validates the composed output.
+
+    - id: step_5
+      name: Human Approval Gate
+      actor_type: gate
+      gate_type: GATE_REQUIRED
+      inputs: [validated_artifact]
+      outputs: [gate_decision]
+      policy_tier: human
+      description: >
+        Human gate — workflow pauses until explicit approval or denial.
+        Denial is final. No silent bypass. Receipt captures decision.
+
+    - id: step_6
+      name: Seal & Finalize
+      actor_type: fc
+      required_capabilities: [seal]
+      inputs: [gate_decision]
+      outputs: [sealed_bundle]
+      policy_tier: automated
+      description: >
+        Federation Core seals the evidence bundle. Manifest finalized.
+        All RHIDs locked. Receipt chain closed.
+
+  fail_closed: true
+  gate_deny_halts: true
+  titan_failure_halts: true
+
+  success_criteria:
+    - "≥3 distinct Titan actor_ids in collaboration ledger"
+    - "≥1 tool invocation action in ledger"
+    - "gate_request + gate_resolve actions exist"
+    - "100% RHID resolution via manifest"
+    - "Receipt chain integrity (prev_action_hash chaining)"
+    - "final_artifact.md exists and is referenced by RHID"
+

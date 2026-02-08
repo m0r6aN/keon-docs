@@ -1,0 +1,18 @@
+{
+  "receipt_rhid": "rhid:receipt:038a2879-030e-4355-b37b-713326e83851",
+  "run_id": "bea9e0e1-989c-4e54-84c4-48cdec9a577d",
+  "request_id": "2c3b41cb-49f8-451b-9061-9b13e77f7b70",
+  "step_id": "step_1",
+  "action_id": "11d3fa32-1f33-4719-8cc8-e61d8b4b1f88",
+  "seq": 1,
+  "actor_id": "claude_titan",
+  "actor_type": "titan",
+  "action_type": "execute",
+  "input_rhids": [],
+  "output_rhids": ["rhid:artifact:abc4b7e5-3b74-4456-a0b6-743b3b33afa8"],
+  "policy_decision_rhid": null,
+  "receipt_hash": "30a7c05f936bc33672e8b0c066fc731e15cfdf272be5828516f440fe4d8d22e0",
+  "prev_receipt_hash": null,
+  "created_at": "2026-02-07T13:43:03.298749+00:00"
+}
+

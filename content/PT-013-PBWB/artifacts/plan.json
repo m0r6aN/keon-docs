@@ -1,0 +1,69 @@
+{
+  "plan_id": "plan-bea9e0e1",
+  "rhid": "rhid:artifact:987ed21b-aacc-4a73-957b-9c9ff9637b3f",
+  "run_id": "bea9e0e1-989c-4e54-84c4-48cdec9a577d",
+  "created_at": "2026-02-07T13:43:03.299035+00:00",
+  "created_by": "gemini_titan",
+  "title": "Multi-Titan Collaboration Execution Plan",
+  "description": "Execution plan mapping work order requirements to Titan assignments, step ordering, gate placement, and seal conditions.",
+  "steps": [
+    {
+      "step_id": "step_1",
+      "name": "Normalize & Extract",
+      "assigned_to": "claude_titan",
+      "depends_on": [],
+      "policy_tier": "automated",
+      "expected_output": "normalized_artifact"
+    },
+    {
+      "step_id": "step_2",
+      "name": "Plan & Structure",
+      "assigned_to": "gemini_titan",
+      "depends_on": ["step_1"],
+      "policy_tier": "automated",
+      "expected_output": "plan_artifact"
+    },
+    {
+      "step_id": "step_3",
+      "name": "Build & Compose",
+      "assigned_to": "gpt_titan",
+      "depends_on": ["step_2"],
+      "policy_tier": "automated",
+      "expected_output": "composed_artifact"
+    },
+    {
+      "step_id": "step_4",
+      "name": "Audit & Validate",
+      "assigned_to": "grok_titan",
+      "depends_on": ["step_3"],
+      "policy_tier": "automated",
+      "expected_output": "validated_artifact"
+    },
+    {
+      "step_id": "step_5",
+      "name": "Human Approval Gate",
+      "assigned_to": "approver_1",
+      "depends_on": ["step_4"],
+      "policy_tier": "human",
+      "gate_type": "GATE_REQUIRED",
+      "expected_output": "gate_decision"
+    },
+    {
+      "step_id": "step_6",
+      "name": "Seal & Finalize",
+      "assigned_to": "federation_core",
+      "depends_on": ["step_5"],
+      "policy_tier": "fc",
+      "expected_output": "sealed_bundle"
+    }
+  ],
+  "constraints": {
+    "fail_closed": true,
+    "gate_deny_halts": true,
+    "titan_failure_halts": true,
+    "sequential_execution": true,
+    "receipt_per_action": true,
+    "rhid_per_artifact": true
+  }
+}
+

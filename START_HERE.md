@@ -141,6 +141,26 @@ Designed for environments where **explainability must last years**, not just rea
 
 ---
 
+## Lifecycle governance — birth, death, and automation
+
+Keon doesn't only govern point-in-time decisions. It governs the **full lifecycle** of autonomous digital entities.
+
+**Governed Birth** — Entity creation requires explicit authority. Every entity begins with a receipt-bound genesis event. No entity exists without a governed creation record.
+
+**Governed Death** — Revocation and termination produce immutable lineage. No death without birth (prevents phantom entities). No double-death (prevents state corruption). Receipt chains link creation → termination with no gaps.
+
+**Governed Automation** — Policies can trigger automatic governance actions, but always with accountability:
+
+- Severity gradation: RECOMMEND → AUTO_REVOKE → AUTO_TERMINATE
+- Human gate enforcement for irreversible actions
+- Cooldown periods to prevent policy flapping
+- Fail-closed: ambiguous or incomplete context defaults to NO_ACTION
+- Full attribution: policy ID, version, automation flag, and trigger events
+
+> *Machines may act automatically — but Keon can always prove why, under whose authority, and with what limits.*
+
+---
+
 ## Governance surfaces
 
 ### Keon Control (human governance surface)
@@ -185,6 +205,7 @@ Governed runtimes integrate Keon to:
 | Verify every public claim         | 30–60 min  | [Claims Registry](./canon/CLAIMS_REGISTRY.yaml)              |
 | See real production usage         | 30+ min    | [OMEGA](https://github.com/m0r6aN/omega-docs)                |
 | Audit / forensic deep-dive        | 1–2 hrs    | [Proof maps + sealed Evidence Packs](./EVIDENCE/README.md)   |
+| Verify proven capabilities        | 15–30 min  | [Proof Campaign Status](https://github.com/m0r6aN/omega-docs/blob/main/REPORT/PROOFS/PROOF_CAMPAIGN_STATUS.md) |
 
 
 ---
@@ -201,4 +222,4 @@ Governed runtimes integrate Keon to:
 
 **One-line truth**
 
-> **Keon makes execution provable; even when lawyers and regulators are watching.**
+> **Keon makes execution provable — from creation through termination, even when lawyers and regulators are watching.**

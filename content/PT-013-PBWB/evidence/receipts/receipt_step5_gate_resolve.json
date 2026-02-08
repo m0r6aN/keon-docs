@@ -1,0 +1,18 @@
+{
+  "receipt_rhid": "rhid:receipt:a92aab7a-4eca-4254-afc4-5b4ddaeaf4e8",
+  "run_id": "bea9e0e1-989c-4e54-84c4-48cdec9a577d",
+  "request_id": "2c3b41cb-49f8-451b-9061-9b13e77f7b70",
+  "step_id": "step_5",
+  "action_id": "0001b170-ca9a-4917-a31d-d02178c7bf59",
+  "seq": 6,
+  "actor_id": "approver_1",
+  "actor_type": "human",
+  "action_type": "gate_resolve",
+  "input_rhids": ["rhid:gate:748fa498-a1d6-491f-8e99-d4ee22629e41"],
+  "output_rhids": ["rhid:receipt:462802a0-4ca9-4639-8cde-75b1829d23e8"],
+  "policy_decision_rhid": "collab_approval:allow",
+  "receipt_hash": "3df0145fb3fe31ca763df19c1755cb3582ed66e957a98765a41fa11aea597b4a",
+  "prev_receipt_hash": "9ceea2763ed0f284cb55fad9eaad951b2378eda923a9a52686fadb0154fa9e4e",
+  "created_at": "2026-02-07T13:43:03.913139+00:00"
+}
+

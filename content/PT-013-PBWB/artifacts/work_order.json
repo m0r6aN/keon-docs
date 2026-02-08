@@ -1,0 +1,37 @@
+{
+  "work_order_id": "2c3b41cb-49f8-451b-9061-9b13e77f7b70",
+  "rhid": "rhid:artifact:wo-2c3b41cb",
+  "created_at": "2026-02-07T13:43:03.298000+00:00",
+  "created_by": "federation_core",
+  "workflow_id": "pbwb_multi_titan_collab",
+  "title": "Multi-Titan Collaboration — Proof-Backed Workflow Policy Pack",
+  "description": "Prove multi-Titan collaboration under FC governance with action-level attribution, thin receipts, RHID pointers, and sealed evidence bundle.",
+  "campaign": "PT-013",
+  "claim": "KS-COLLAB-013",
+  "inputs": {
+    "directive": "PT-013_MULTI_TITAN_COLLAB_DIRECTIVE.md",
+    "required_titans": ["claude_titan", "gemini_titan", "gpt_titan", "grok_titan"],
+    "required_gates": 1,
+    "success_criteria": [
+      ">=3 distinct Titan actor_ids in ledger",
+      ">=1 tool invocation action in ledger",
+      "gate_request + gate_resolve actions exist",
+      "100% RHID resolution via manifest",
+      "Receipt chain integrity (prev_action_hash chaining)",
+      "final_artifact.md exists and is referenced by RHID"
+    ]
+  },
+  "outputs": {
+    "collaboration_ledger": "collaboration_ledger.jsonl",
+    "manifest": "evidence/manifest.json",
+    "final_artifact": "artifacts/final_artifact.md",
+    "receipts_dir": "evidence/receipts/"
+  },
+  "governance": {
+    "fail_closed": true,
+    "gate_deny_halts": true,
+    "titan_failure_halts": true,
+    "policy_evaluation_required": true
+  }
+}
+

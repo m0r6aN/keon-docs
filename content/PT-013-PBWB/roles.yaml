@@ -1,0 +1,91 @@
+# PT-013 Proof-Backed Workflow Policy Pack — Roles
+# Defines every actor type that participates in the workflow,
+# their capabilities, and their governance boundaries.
+
+version: "1.0"
+campaign: PT-013
+
+roles:
+  # ── Titan Roles ────────────────────────────────────────────────
+  - id: claude_titan
+    type: titan
+    capabilities:
+      - claude
+      - normalize
+      - extract
+    assigned_steps:
+      - step_1
+    description: >
+      First Titan in the collaboration chain. Normalizes and extracts
+      structured data from the incoming work order.
+
+  - id: gemini_titan
+    type: titan
+    capabilities:
+      - gemini
+      - plan
+      - structure
+    assigned_steps:
+      - step_2
+    description: >
+      Second Titan. Creates an execution plan from normalized input.
+
+  - id: gpt_titan
+    type: titan
+    capabilities:
+      - gpt
+      - build
+      - compose
+    assigned_steps:
+      - step_3
+    description: >
+      Third Titan. Builds the primary deliverable from the plan.
+
+  - id: grok_titan
+    type: titan
+    capabilities:
+      - grok
+      - audit
+      - validate
+    assigned_steps:
+      - step_4
+    description: >
+      Fourth Titan. Audits and validates the composed output.
+
+  # ── Federation Core ────────────────────────────────────────────
+  - id: federation_core
+    type: fc
+    capabilities:
+      - gate_management
+      - seal
+      - workflow_orchestration
+      - policy_evaluation
+    assigned_steps:
+      - step_5  # gate_request
+      - step_6  # seal
+    description: >
+      Federation Core orchestrates the workflow, manages gates,
+      evaluates policies, and seals the final evidence bundle.
+      FC never executes domain logic — only governance operations.
+
+  # ── Human Roles ────────────────────────────────────────────────
+  - id: approver_1
+    type: human
+    capabilities:
+      - approve
+      - deny
+    assigned_steps:
+      - step_5  # gate_resolve
+    description: >
+      Human approver at the governance gate. Has authority to approve
+      or deny workflow continuation. Decision is final and receipted.
+
+# ── Governance Boundaries ──────────────────────────────────────
+boundaries:
+  - rule: Titans execute domain work only. No governance operations.
+  - rule: FC handles governance only. No domain execution.
+  - rule: Humans resolve gates only. No direct execution.
+  - rule: Every actor action produces a receipt.
+  - rule: Every artifact is RHID-addressed.
+  - rule: No actor can bypass the policy evaluation step.
+

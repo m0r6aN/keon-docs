@@ -1,0 +1,18 @@
+{
+  "receipt_rhid": "rhid:receipt:d450901d-0193-4f75-9e0e-fa373f788572",
+  "run_id": "bea9e0e1-989c-4e54-84c4-48cdec9a577d",
+  "request_id": "2c3b41cb-49f8-451b-9061-9b13e77f7b70",
+  "step_id": "step_5",
+  "action_id": "56c3a5b0-56c5-46ac-9c41-b5caeba357f4",
+  "seq": 5,
+  "actor_id": "federation_core",
+  "actor_type": "fc",
+  "action_type": "gate_request",
+  "input_rhids": ["rhid:artifact:32ded169-61e5-47da-8d92-402a9571ceb2"],
+  "output_rhids": ["rhid:gate:ac5ece73-8bcc-4a67-ab57-6e527e559005"],
+  "policy_decision_rhid": null,
+  "receipt_hash": "9ceea2763ed0f284cb55fad9eaad951b2378eda923a9a52686fadb0154fa9e4e",
+  "prev_receipt_hash": "3fe88a1007415611cbd92e7a0b3ff05cd1c9ed21dce7c2be6a399097a2d27ad5",
+  "created_at": "2026-02-07T13:43:03.343700+00:00"
+}
+

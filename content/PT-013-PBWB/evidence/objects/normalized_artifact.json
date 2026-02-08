@@ -1,0 +1,13 @@
+{
+  "rhid": "rhid:artifact:abc4b7e5-3b74-4456-a0b6-743b3b33afa8",
+  "kind": "artifact",
+  "created_by": "claude_titan",
+  "created_at": "2026-02-07T13:43:03.298771+00:00",
+  "action_id": "11d3fa32-1f33-4719-8cc8-e61d8b4b1f88",
+  "run_id": "bea9e0e1-989c-4e54-84c4-48cdec9a577d",
+  "sha256": "39f10366323c079811dc6b529b35df02904c559243bda0f3b0a1ad1532a55632",
+  "content_type": "application/json",
+  "description": "Normalized work order output from step 1 (Claude Titan). Input for step 2.",
+  "immutable": true
+}
+

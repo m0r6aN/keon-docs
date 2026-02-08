@@ -1,0 +1,81 @@
+# PT-013 Proof-Backed Workflow Policy Pack — Policies
+# Policy rules evaluated at each step of the workflow.
+# Every step has a policy tier: automated | human | fc
+# Policy evaluation is mandatory. No step executes without a decision.
+
+version: "1.0"
+campaign: PT-013
+
+policies:
+  - id: titan_execute
+    description: >
+      Standard policy for Titan execution steps. Automated evaluation.
+      If Titan is registered, has required capabilities, and inputs are valid,
+      execution is allowed. If any condition is unmet, execution is denied.
+    tier: automated
+    applies_to:
+      - step_1
+      - step_2
+      - step_3
+      - step_4
+    rules:
+      - condition: actor_registered
+        action: allow
+        description: Actor must be registered in agent registry
+      - condition: capabilities_match
+        action: allow
+        description: Actor must declare capabilities required by step
+      - condition: inputs_valid
+        action: allow
+        description: All input RHIDs must resolve in manifest
+      - condition: prev_step_completed
+        action: allow
+        description: Previous step must have COMPLETED status
+    fail_closed: true
+    on_failure: deny_and_halt
+
+  - id: collab_approval
+    description: >
+      Human gate policy. Requires explicit human approval before workflow
+      can proceed past the gate. Denial is final — no retry, no override.
+    tier: human
+    applies_to:
+      - step_5
+    rules:
+      - condition: gate_requested
+        action: pause
+        description: Workflow pauses at gate until human resolves
+      - condition: human_approves
+        action: allow
+        description: Human explicitly approves — workflow continues
+      - condition: human_denies
+        action: deny
+        description: Human explicitly denies — workflow halts permanently
+    fail_closed: true
+    on_failure: deny_and_halt
+    on_timeout: deny_and_halt
+
+  - id: seal_policy
+    description: >
+      Federation Core seal policy. Automated. All prior steps must have
+      completed with valid receipts. Manifest must be 100% resolvable.
+    tier: fc
+    applies_to:
+      - step_6
+    rules:
+      - condition: all_steps_completed
+        action: allow
+        description: Every prior step has status COMPLETED
+      - condition: receipt_chain_valid
+        action: allow
+        description: prev_action_hash chain is unbroken
+      - condition: manifest_complete
+        action: allow
+        description: 100% of RHIDs are resolvable
+    fail_closed: true
+    on_failure: deny_and_halt
+
+# Fail-closed semantics:
+# If any policy evaluation returns ambiguous, incomplete, or missing context,
+# the decision is DENY. No silent bypass. No default-allow.
+

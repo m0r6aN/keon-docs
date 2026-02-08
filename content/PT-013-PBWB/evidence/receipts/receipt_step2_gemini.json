@@ -1,0 +1,18 @@
+{
+  "receipt_rhid": "rhid:receipt:ede61fb5-a830-4661-a671-1376e1ef7199",
+  "run_id": "bea9e0e1-989c-4e54-84c4-48cdec9a577d",
+  "request_id": "2c3b41cb-49f8-451b-9061-9b13e77f7b70",
+  "step_id": "step_2",
+  "action_id": "4a4f8d9e-4548-4207-81f2-d3e0ced2d911",
+  "seq": 2,
+  "actor_id": "gemini_titan",
+  "actor_type": "titan",
+  "action_type": "execute",
+  "input_rhids": ["rhid:artifact:abc4b7e5-3b74-4456-a0b6-743b3b33afa8"],
+  "output_rhids": ["rhid:artifact:987ed21b-aacc-4a73-957b-9c9ff9637b3f"],
+  "policy_decision_rhid": null,
+  "receipt_hash": "0941c8158797dfb1ccf30065e63685e542984aaefb26678108a13e87f10f421d",
+  "prev_receipt_hash": "30a7c05f936bc33672e8b0c066fc731e15cfdf272be5828516f440fe4d8d22e0",
+  "created_at": "2026-02-07T13:43:03.299019+00:00"
+}
+

@@ -1,0 +1,23 @@
+{
+  "rhid": "rhid:artifact:635f9a2f-2eb1-4534-8c3b-139512dbdc5d",
+  "kind": "artifact",
+  "created_by": "federation_core",
+  "created_at": "2026-02-07T13:43:03.952667+00:00",
+  "action_id": "417be3e3-009f-4362-9758-612a02dabce0",
+  "run_id": "bea9e0e1-989c-4e54-84c4-48cdec9a577d",
+  "sha256": "ef37ed4e44e684c698ccd6ed8bb64f1a7dd5d1bc8ca583fdc2078cfe87f787cf",
+  "content_type": "application/json",
+  "description": "Sealed evidence bundle. Final output of the workflow. All RHIDs locked, receipt chain closed, manifest finalized.",
+  "seal_metadata": {
+    "total_actions": 7,
+    "total_rhids": 14,
+    "receipt_chain_valid": true,
+    "manifest_resolution_rate": "100%",
+    "actors": ["claude_titan", "gemini_titan", "gpt_titan", "grok_titan", "federation_core", "approver_1"],
+    "gate_approvals": 1,
+    "gate_denials": 0,
+    "workflow_status": "COMPLETED"
+  },
+  "immutable": true
+}
+

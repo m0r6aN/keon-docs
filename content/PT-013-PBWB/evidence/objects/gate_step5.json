@@ -1,0 +1,22 @@
+{
+  "rhid": "rhid:gate:ac5ece73-8bcc-4a67-ab57-6e527e559005",
+  "kind": "gate",
+  "created_by": "federation_core",
+  "created_at": "2026-02-07T13:43:03.343718+00:00",
+  "action_id": "56c3a5b0-56c5-46ac-9c41-b5caeba357f4",
+  "run_id": "bea9e0e1-989c-4e54-84c4-48cdec9a577d",
+  "sha256": "697b22f97f9f859b52395555b377b178cc1a3098de96a40c954b1033706c76fd",
+  "gate_type": "GATE_REQUIRED",
+  "step_id": "step_5",
+  "status": "resolved",
+  "resolution": "approved",
+  "resolved_by": "approver_1",
+  "resolved_at": "2026-02-07T13:43:03.913139+00:00",
+  "policy_decision": {
+    "policy_id": "collab_approval",
+    "tier": "human",
+    "decision": "allow"
+  },
+  "immutable": true
+}
+
