@@ -1,204 +1,204 @@
-# START_HERE: Welcome to Keon Systems
+# **START HERE — What Keon Is and Why It Exists**  
 
-**30-second summary**: Keon is a governance substrate that proves AI decisions; before, during, and after execution. Policy is enforced at the infrastructure boundary. Every governed decision produces verifiable evidence.
+**Keon turns AI-triggered actions into court-defensible, independently verifiable proof — before a single line of code ever runs in production.**
 
----
+**30-second summary**  
+Keon is the **governance and forensic substrate** for AI-assisted systems where decisions cause real execution.
 
-## What Is Keon?
-
-Keon is designed for governing AI and LLM-driven systems where decisions must be provable, auditable, and regulator-ready.
-
-AI has crossed from advisory to operational. Enterprises deploy faster than they can control. Existing governance patterns fail at the infrastructure level.
-
-Keon introduces a different model:
+It enforces policy **before execution**, records **explicit authority**, and produces **verifiable evidence packs** that survive audit, investigation, e-discovery, and courtroom scrutiny.
 
 > **Execution proposes. Governance decides. Receipts prove.**
-```
-┌─────────────────────────────────────────┐
-│  Your Applications (Agents, Workflows)  │
-├─────────────────────────────────────────┤
-│  Keon Governance Layer                  │
-│  • Policy enforcement                   │
-│  • Decision gating                      │
-│  • Evidence generation                  │
-├─────────────────────────────────────────┤
-│  Execution Substrate (Federation Core)  │
-│  • Secure compute                       │
-│  • Encrypted storage                    │
-│  • Tamper-evident audit log             │
-└─────────────────────────────────────────┘
-```
-
-Keon does not attempt to "explain" LLM internals. Instead, it governs **decision boundaries** around AI execution and answers questions such as:
-
-- Under which policy was this output allowed?
-- Where did human approval intervene?
-- What constraints shaped the outcome?
-- What evidence proves the decision path?
-
-This shifts explainability from model introspection to **governance accountability**.
 
 ---
 
-## Key Surfaces
+## The problem Keon solves
 
-### Keon Control (Governance Surface)
+AI has crossed from advisory → **operational**.
 
-**Definition**
-- A human governance surface
-- A cross-application view
-- A forensic & audit tool
-- A policy lifecycle manager
-- A receipt and evidence explorer
+Today AI systems:
 
-**Target Audience**
-- Enterprise administrators
-- Compliance officers
-- Security teams
-- Legal / audit
-- Platform owners
+- deploy infrastructure
+- modify accounts & permissions
+- trigger workflows
+- make decisions with legal / financial / safety consequences
 
-**Design Philosophy**
-- Out-of-band by design
-- Enterprise-facing
-- Similar to AWS Console / Okta Admin
-- Not embedded in SaaS apps
+Most “AI governance” tools stop at:
 
-**The Iron Rule**
-- Keon never executes. Keon decides.
-- Keon is a governance authority surface, not an application feature.
-- Applications observe governance, never exercise it.
+- prompt safety
+- alignment
+- real-time monitoring
+- post-hoc logs
 
----
+They collapse when the real questions arrive months or years later:
 
-## Choose Your Path
+> *Who authorized this change?*  
+> *Under which ratified policy version?*  
+> *What exact evidence was evaluated?*  
+> *Can this decision be independently reproduced and verified?*
 
-| Goal | Time | Start Here |
-|------|------|------------|
-| **Verify it works** | 2–5 min | [Evidence Pack Tour](https://keon-systems.vercel.app/evidence-pack-tour) — no signup required |
-| **Understand the architecture** | 15–30 min | [Whitepaper: Governed Execution for Operational AI](./whitepaper/INDEX.md) |
-| **Build with Keon** | 30+ min | [SDK Quick Start](#build-with-keon) |
-| **Audit claims** | 1–2 hrs | [Claims Registry](#governance-claims-registry) |
+That’s **not observability**.  
+That’s a **forensics & accountability gap**.
 
 ---
 
-## Core Concepts
+## What Keon actually is
 
-### Evidence Pack
+Keon is the **decision governance layer** between intent and execution.
 
-The fundamental unit of proof. A tamper-evident bundle containing:
+It enforces one mechanical boundary:
 
-- **Decision**: What the AI was asked to do
-- **Policy**: The governance rules that applied
-- **Authority**: Who approved the decision (ALPHA system)
-- **Execution**: What actually happened
-- **Proof**: Cryptographic receipt proving all of the above
+**Decision → Authorization → Receipt → Execution → Evidence**
 
-Evidence Packs are human-readable, machine-verifiable, and immutable. Sealed packs are stored in the **[Keon Evidence Vault][vault]** (append-only, write-once, read-only).
+Every governed action must produce:
 
-### ALPHA (Authority Layer for Policy Handling)
+- explicit authorization decision
+- cryptographic receipt
+- tamper-evident audit trail
+- verifiable **evidence pack** suitable for forensic review
 
-The human decision point. When policy requires human approval:
+No valid receipt? → **No execution**.
 
-1. AI submits a decision request
-2. ALPHA presents the decision to authorized human(s)
-3. Human approves or rejects with explicit consent
-4. System records decision + approval in Evidence Pack
-5. Approved decision executes with full provenance
-
-AI always operates under human authority, never autonomously overriding governance.
-
----
-
-## Build with Keon
-
-### Choose Your SDK
-
-| Language | Repository | Notes |
-|----------|------------|-------|
-| **C#** (recommended) | [keon-sdk-cs](https://github.com/m0r6aN/keon-sdk-cs) | Production-ready, used by OMEGA |
-| **Go** | [keon-sdk-go](https://github.com/m0r6aN/keon-sdk-go) | High-performance, low latency |
-| **Python** | [keon-sdk-python](https://github.com/m0r6aN/keon-sdk-python) | Data science, ML pipelines |
-| **TypeScript** | [keon-sdk-ts](https://github.com/m0r6aN/keon-sdk-ts) | Node.js, browser, real-time agents |
-
-Each SDK includes setup instructions, working examples, integration tests, and API documentation.
-
-### See It in Production
-
-[OMEGA](https://github.com/m0r6aN/OMEGA) demonstrates real governance patterns and Evidence Pack creation in practice.
-
----
-
-## Governance Claims Registry
-
-Every claim Keon makes is registered, versioned, and linked to verifiable proof.
-
-### Active Claims
-
-**KS-DECIDE-001: Deterministic Decision Gateway**
-- Keon provides a deterministic runtime decision gateway emitting cryptographically verifiable receipts
-- Implementation: `keon-runtime/src/Keon.Runtime.Decide`
-- Verification: `keon verify-pack ./samples/decision-pack.json`
-
-**KS-EVIDENCE-004: Evidence Pack Verification CLI**
-- Users can independently verify Evidence Packs using the Keon CLI
-- Implementation: `keon-cli/src/Commands/Verify`
-- Verification: `keon verify-pack ./samples/evidence-pack.json`
-
-Full registry: [canon/CLAIMS_REGISTRY.yaml](./canon/CLAIMS_REGISTRY.yaml)
-Proof artifacts: [canon/PROOF_MAP.yaml](./canon/PROOF_MAP.yaml)
-
----
-
-## Repository Structure
-```
-keon-docs/
-├── START_HERE.md          # You are here
-├── whitepaper/            # Versioned design documents (v1.0 current)
-├── canon/
-│   ├── CLAIMS_REGISTRY.yaml   # All public claims
-│   ├── PROOF_MAP.yaml         # Verification artifacts
-│   └── FEATURES_BY_PHASE.yaml # Implementation timeline
-└── content/               # Reconciliation ledger (drift tracking)
+```mermaid
+flowchart LR
+    A[AI / System Proposal] --> B[Keon Authorization]
+    B -->|Valid Receipt| C[Execution Allowed]
+    B -->|No / Invalid Receipt| D[Execution Blocked]
+    C --> E[Evidence Pack Sealed]
+    style B fill:#d32f2f,stroke:#fff,stroke-width:2px
 ```
 
-### Key Repositories
-
-| Repo | Purpose |
-|------|---------|
-| [keon-docs](https://github.com/m0r6aN/keon-docs) | Public claims, whitepaper, verification |
-| [keon-systems-web](https://github.com/m0r6aN/keon-systems-web) | Website & Evidence Pack tour |
-| [OMEGA](https://github.com/m0r6aN/OMEGA) | Production example using Keon |
-| [federation-core](https://github.com/m0r6aN/federation-core) | Secure execution substrate |
 
 ---
 
-## FAQ
+## What Keon is **not**
 
-**How is Keon different from audit logging?**
-Audit logging records what happened after the fact. Keon enforces policy before decisions execute and produces tamper-evident proof of enforcement.
+Keon stays narrow by design. It does **not**:
 
-**Do I need to trust Keon's implementation?**
-No. Every claim is linked to verifiable proof. You can independently verify using the Proof Map.
+- reason with LLMs
+- generate plans / workflows
+- initiate actions
+- execute anything
+- replace your compliance program
+- pretend to be a lawyer
 
-**Can I use Keon with existing AI frameworks?**
-Yes. SDKs integrate into existing code. Choose your language and follow the quick-start.
-
----
-
-## Governance & Versioning
-
-- **Versioned**: Each public claim is versioned separately in `canon/`
-- **Immutable**: Published claims cannot be edited, only superseded
-- **Governed**: Changes tracked in reconciliation ledger
-- **Verifiable**: Every claim links to proof artifacts
-
-**Current version**: v1.0 (January 2026)
-
-For questions, open an issue. For security concerns, see SECURITY.md.
-
-[vault]: https://github.com/m0r6aN/keon-evidence-vault
+Keon exists to make **execution provable** — full stop.
 
 ---
 
-**Law before power. Proof before trust.**
+## Governed execution — the core mental model
+
+- AI outputs = **requests**, never commands
+- Execution = **fail-closed** by default
+- Authority = **explicit & attributable**, never implied
+- Evidence = **first-class deliverable**
+
+This model lets organizations answer the questions regulators, auditors, lawyers, and incident responders actually ask:
+
+- Who approved this?
+- Under what policy version?
+- What was the evidence at decision time?
+- What would have happened if auth failed?
+- Can a third party verify the entire chain?
+
+---
+
+## Evidence Packs — digital forensics by design
+
+The atomic unit of truth in Keon is the **Evidence Pack**.
+
+Each pack is a tamper-evident bundle containing:
+
+- **Decision** — what was requested
+- **Policy** — what governed evaluation
+- **Authority** — who/what approved it
+- **Execution** — what actually ran
+- **Proof** — cryptographic receipts chaining everything
+
+Properties:
+
+- human-readable JSON + binary receipts
+- machine-verifiable signatures
+- immutable once sealed
+- long-term retention ready
+- exportable for legal / audit use
+
+Sealed packs live in the **Keon Evidence Vault** (append-only).
+
+---
+
+## Digital forensics & post-incident reconstruction
+
+Keon artifacts let investigators reconstruct:
+
+- Proposed decision
+- Governing policy snapshot
+- Authorization chain (human or system)
+- Execution timeline
+- Evidence evaluated at decision time
+- Alternate outcomes under different auth conditions
+
+Designed for environments where **explainability must last years**, not just real-time dashboards.
+
+---
+
+## Governance surfaces
+
+### Keon Control (human governance surface)
+
+Cross-system view for:
+
+- policy lifecycle
+- receipt & evidence exploration
+- audit console
+- forensic review
+- compliance oversight
+
+Iron rule:  
+**Keon never executes. Keon decides. Applications observe — they never govern.**
+
+---
+
+## Relationship to governed systems (e.g. OMEGA)
+
+Keon does **not** run code.
+
+Governed runtimes integrate Keon to:
+
+- request authorization
+- receive decisions + obligations
+- emit receipts
+- preserve evidence packs
+- prove compliance later
+
+> **Keon decides.  
+> Governed systems execute.  
+> Receipts prove.**
+
+---
+
+## Choose your path
+
+| Goal                              | Time       | Start here                                                   |
+|-----------------------------------|------------|--------------------------------------------------------------|
+| Understand Keon quickly           | 5–10 min   | This page                                                    |
+| Grasp the full architecture       | 15–30 min  | [Whitepaper](./whitepaper/WHITEPAPER.md)                     |
+| Verify every public claim         | 30–60 min  | [Claims Registry](./canon/CLAIMS_REGISTRY.yaml)              |
+| See real production usage         | 30+ min    | [OMEGA](https://github.com/m0r6aN/omega-docs)                |
+| Audit / forensic deep-dive        | 1–2 hrs    | [Proof maps + sealed Evidence Packs](./EVIDENCE/README.md)   |
+
+
+---
+
+## Design principles (non-negotiable)
+
+- Proof over promises
+- Explicit authority over implicit trust
+- Fail-closed by default
+- Determinism over heuristics
+- Forensic defensibility over narrative comfort
+
+---
+
+**One-line truth**
+
+> **Keon makes execution provable; even when lawyers and regulators are watching.**
